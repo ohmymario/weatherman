@@ -7,7 +7,7 @@ import Header from '../header/Header';
 function App() {
   return (
     <div>
-      <Header/>
+      <Header location={'San Francisco'}/>
     </div>
   );
 }
