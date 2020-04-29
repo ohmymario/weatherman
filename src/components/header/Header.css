@@ -1,76 +1,90 @@
+h1 {
+  margin: 0;
+}
 .header-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  /* TEST NOT KEEPING */
+  max-height: 18rem;
 }
 
 .location {
   font-size: 6.5rem;
-  padding: 2rem;
-  font-weight: 700;
-  width: 70%;
+  padding: 0 1rem;
+  font-weight: 600;
+  width: 65%;
 }
 
 .searchContainer {
-  width: 30%;
+  width: 35%;
+  padding-right: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.search {
-  border: 1px solid red;
-  width: 80%;
-  position: relative;
-}
-
-.searchIcon {
-  position: absolute;
-  top: 10px;
-  right: 0;
+  justify-content: flex-end;
 }
 
 .goSearch {
   /* alter SVG from react-icons */
 }
 
+.search {
+  width: 85%;
+  position: relative;
+  display: inline-block;
+}
+
+.searchIcon,
+.submitIcon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+
+.searchIcon:hover,
+.submitIcon:hover {
+  filter: brightness(90%);
+  transform: scale(1.05);
+}
+
+.submitIcon {
+  z-index: 1000;
+}
+
+#inputSubmit {
+  display: none;
+}
+
 input[type="text"] {
   font-size: 3.5rem;
-  height: 60px;
+  height: 3.75rem;
   display: inline-block;
   font-family: "Raleway";
-  font-weight: 100;
+  font-weight: 200;
   border: none;
   outline: none;
   color: #555;
-  padding: 3px;
-  padding-right: 60px;
-  width: 0px;
-  background: none;
-  z-index: 3;
-  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  width: 0%;
+  transition: width 0.45s cubic-bezier(0, 0.795, 0, 1),
+    border-bottom 0.1s linear;
   cursor: pointer;
 }
 
 input[type="text"]:focus:hover {
-  border-bottom: 1px solid rgb(139, 139, 139);
+  border-bottom: 1px solid rgba(121, 121, 121, 0.7);
 }
 
-input[type="text"]:focus {
-  width: 700px;
-  width: 100%;
+/* show the input if either focused or text is present */
+input[type="text"]:focus,
+input[type="text"]:not(:placeholder-shown) {
+  width: 87%;
   z-index: -1;
   border-bottom: 1px solid #bbb;
   cursor: text;
-}
-
-input[type="submit"] {
-  border: none;
-  z-index: 2;
-  cursor: pointer;
-  opacity: 0.4;
-  transition: opacity 0.4s ease;
-
-  display: none;
 }
 
 input[type="submit"]:hover {
