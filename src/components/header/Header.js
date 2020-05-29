@@ -4,7 +4,7 @@ import { GoSearch } from 'react-icons/go';
 
 const Header = (props) => {
 
-  const { location } = props;
+  const { location, setLocation } = props;
 
   const [searchTerm, setSearchTerm] = useState('');
   const [toggleSearch, setToggleSearch] = useState(true);
@@ -19,7 +19,7 @@ const Header = (props) => {
 
     // TODO : send back search query to wrapping container state
     // TODO : check if valid location before clearing
-    setSearchTerm('')
+    setLocation(searchTerm)
   }
 
   const handleChange = (e) => {
