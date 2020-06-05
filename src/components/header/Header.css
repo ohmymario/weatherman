@@ -5,17 +5,16 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
 
   /* TEST NOT KEEPING */
-  max-height: 18rem;
+  min-height: 16rem;
 }
 
 .location {
   font-size: 6.5rem;
-  padding: 0 1rem;
   font-weight: 600;
   width: 65%;
+  text-transform: capitalize;
 }
 
 .searchContainer {

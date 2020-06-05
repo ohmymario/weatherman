@@ -19,6 +19,7 @@ const Header = (props) => {
 
     // TODO : send back search query to wrapping container state
     // TODO : check if valid location before clearing
+    // TODO : clear the search term after submitted
     setLocation(searchTerm)
   }
 
