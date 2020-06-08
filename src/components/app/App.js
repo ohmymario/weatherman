@@ -4,6 +4,7 @@ import './App.css';
 // Components
 import Header from '../header/Header';
 import CurrentTemp from '../currentTemp/CurrentTemp';
+import WeatherExtra from '../weatherExtra/WeatherExtra';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
     <div className="app-container">
       <Header location={location}  setLocation={setLocation} />
       <CurrentTemp currentWeatherData={currentWeatherData}/>
+      <WeatherExtra currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData}/>
     </div>
   );
 }
