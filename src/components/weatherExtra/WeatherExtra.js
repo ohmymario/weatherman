@@ -29,19 +29,17 @@ const WeatherExtra = (props) => {
   }, [props])
 
   if(!allWeatherData) return null;
-  // humidity/blue/%, feels_like/purple/degree, pressure/yellow/mb wind_speed/green/mph | max, min/#D13D41 scarlet/degree
+  // humidity/blue/%/tint, feels_like/purple/degree/sun, pressure/yellow/mb/tachometer wind_speed/green/mph/wind | max, min/#D13D41 scarlet/degree/thermometer
 
-  const { humidity, feels_like, pressure, wind_speed, max, min } = allWeatherData;
-
+  const { humidity, feels_like, wind_speed, max, min, pressure } = allWeatherData;
 
   return (
     <div className="weather-extra-container">
-      <WeatherCard data={feels_like} />
-      {/* <WeatherCard data={humidity} /> */}
-      {/* <WeatherCard data={pressure} /> */}
-      {/* <WeatherCard data={wind_speed} /> */}
-      {/* <WeatherCard data={`${min}° - ${max}°`} /> */}
-
+      <WeatherCard data={feels_like} type={`Feels Like`} icon='sun'/>
+      <WeatherCard data={humidity} type={`Humidity`} icon='tint'/>
+      <WeatherCard data={wind_speed} type={`Wind`} icon='wind'/>
+      <WeatherCard data={pressure} type={`Pressure`} icon='tachometer-alt'/>
+      <WeatherCard data={`${min}° | ${max}°`} type={`Min/Max`} icon='thermometer-half'/>
     </div>
   )
 }
