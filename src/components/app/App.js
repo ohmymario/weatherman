@@ -6,6 +6,9 @@ import Header from '../header/Header';
 import CurrentTemp from '../currentTemp/CurrentTemp';
 import WeatherExtra from '../weatherExtra/WeatherExtra';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 function App() {
 
@@ -55,6 +58,8 @@ function App() {
   }, [location]);
 
   // SET LOADING FOR THE COMPONENTS WHILE THE DATA IS BEING FETCHED
+
+  library.add(faSun, faThermometerHalf, faWind, faTint, faTachometerAlt)
 
   return (
     <div className="app-container">
