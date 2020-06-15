@@ -35,11 +35,11 @@ const WeatherExtra = (props) => {
 
   return (
     <div className="weather-extra-container">
-      <WeatherCard data={feels_like} type={`Feels Like`} icon='sun'/>
-      <WeatherCard data={humidity} type={`Humidity`} icon='tint'/>
-      <WeatherCard data={wind_speed} type={`Wind`} icon='wind'/>
-      <WeatherCard data={pressure} type={`Pressure`} icon='tachometer-alt'/>
-      <WeatherCard data={`${min}° | ${max}°`} type={`Min/Max`} icon='thermometer-half'/>
+      <WeatherCard data={`${feels_like}°`} type={`Feels Like`} icon='sun' unit={""}/>
+      <WeatherCard data={humidity} type={`Humidity`} icon='tint' unit={"%"}/>
+      <WeatherCard data={wind_speed} type={`Wind`} icon='wind' unit={"mph"}/>
+      <WeatherCard data={pressure} type={`Pressure`} icon='tachometer-alt' unit={"mbar"}/>
+      <WeatherCard data={`${min}° | ${max}°`} type={`Min/Max`} icon='thermometer-half' unit={""}/>
     </div>
   )
 }

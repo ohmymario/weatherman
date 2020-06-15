@@ -4,14 +4,17 @@ import '../weatherCard/WeatherCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const WeatherCard = (props) => {
+
+  const { data, icon, type, unit } = props;
+
   return (
     <div className="card-container">
       <div className="icon-container">
-        <FontAwesomeIcon className="card-icon" icon={props.icon} />
+        <FontAwesomeIcon className="card-icon" icon={icon} />
       </div>
 
-      <p className="card-data">{props.data}</p>
-      <p className="card-description">{props.type}</p>
+      <p className="card-data">{data}<span>{unit}</span></p>
+      <p className="card-description">{type}</p>
     </div>
   )
 }
