@@ -1,21 +1,20 @@
 import React from 'react';
-import '../weatherCard/WeatherCard.css';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import StyledCardContainer from './WeatherCardStyles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const WeatherCard = (props) => {
 
-  const { data, icon, type, unit } = props;
+  const { data, icon, type, unit, color } = props;
 
   return (
-    <div className="card-container">
+    <StyledCardContainer color={color}>
       <div className="icon-container">
         <FontAwesomeIcon className="card-icon" icon={icon} />
       </div>
 
       <p className="card-data">{data}<span>{unit}</span></p>
       <p className="card-description">{type}</p>
-    </div>
+    </StyledCardContainer>
   )
 }
 

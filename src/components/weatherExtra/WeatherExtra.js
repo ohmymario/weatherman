@@ -29,17 +29,21 @@ const WeatherExtra = (props) => {
   }, [props])
 
   if(!allWeatherData) return null;
-  // humidity/blue/%/tint, feels_like/purple/degree/sun, pressure/yellow/mb/tachometer wind_speed/green/mph/wind | max, min/#D13D41 scarlet/degree/thermometer
+  // humidity/blue/%/tint,
+  // feels_like/purple/degree/sun,
+  // pressure/yellow/mb/tachometer,
+  // wind_speed/green/mph/wind | max,
+  // min/#D13D41 scarlet/degree/thermometer
 
   const { humidity, feels_like, wind_speed, max, min, pressure } = allWeatherData;
 
   return (
     <div className="weather-extra-container">
-      <WeatherCard data={`${feels_like}°`} type={`Feels Like`} icon='sun' unit={""}/>
-      <WeatherCard data={humidity} type={`Humidity`} icon='tint' unit={"%"}/>
-      <WeatherCard data={wind_speed} type={`Wind`} icon='wind' unit={"mph"}/>
-      <WeatherCard data={pressure} type={`Pressure`} icon='tachometer-alt' unit={"mbar"}/>
-      <WeatherCard data={`${min}° | ${max}°`} type={`Min/Max`} icon='thermometer-half' unit={""}/>
+      <WeatherCard data={`${feels_like}°`} type={`Feels Like`} icon='sun' unit={""} color='rgba(80, 79, 211)'/>
+      <WeatherCard data={humidity} type={`Humidity`} icon='tint' unit={"%"} color='rgba(84, 175, 237)'/>
+      <WeatherCard data={wind_speed} type={`Wind`} icon='wind' unit={"mph"} color='rgba(89, 198, 58)'/>
+      <WeatherCard data={pressure} type={`Pressure`} icon='tachometer-alt' unit={"mbar"} color='rgba(245, 206, 2)'/>
+      <WeatherCard data={`${min}° | ${max}°`} type={`Min/Max`} icon='thermometer-half' unit={""} color='rgba(209, 61, 65)'/>
     </div>
   )
 }

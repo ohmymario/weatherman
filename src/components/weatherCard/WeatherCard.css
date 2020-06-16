@@ -1,4 +1,4 @@
-.card-container {
+/* .card-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +38,6 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin: 5px 0 5px 0;
-  /* border: 1px solid red; */
 }
 
 .card-data span {
@@ -50,4 +49,4 @@
 .card-description {
   font-size: 1rem;
   padding: 0 0 5px 0;
-}
+} */
