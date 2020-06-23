@@ -5,6 +5,7 @@ import './App.css';
 import Header from '../header/Header';
 import CurrentTemp from '../currentTemp/CurrentTemp';
 import WeatherExtra from '../weatherExtra/WeatherExtra';
+import Forecast from '../forecast/Forecast';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
@@ -66,6 +67,7 @@ function App() {
       <Header location={location}  setLocation={setLocation} />
       <CurrentTemp currentWeatherData={currentWeatherData}/>
       <WeatherExtra currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData}/>
+      <Forecast/>
     </div>
   );
 }
