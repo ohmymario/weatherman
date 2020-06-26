@@ -3,48 +3,34 @@ import ForecastGraph from '../forecastGraph/ForecastGraph'
 
 import '../forecast/Forecast.css'
 
-const data = [
-  {
-    "id": "7 Day Forecast",
-    "color": "hsl(84, 70%, 50%)",
-    "data": [
-      {
-        "x": "Monday",
-        "y": 101
-      },
-      {
-        "x": "Tuesday",
-        "y": 104
-      },
-      {
-        "x": "Wednesday",
-        "y": 105
-      },
-      {
-        "x": "Thursday",
-        "y": 104
-      },
-      {
-        "x": "Friday",
-        "y": 106
-      },
-      {
-        "x": "Saturday",
-        "y": 105
-      },
-      {
-        "x": "Sunday",
-        "y": 98
-      },
-    ]
-  },
-]
+function getDay(UNIX_timestamp){
+  var a = new Date(UNIX_timestamp * 1000);
+  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var dayName = days[a.getDay()];
+  return dayName;
+}
 
-const Forecast = () => {
+const parseWeeklyData = (weeklyWeatherData) => {
+
+  const weeklyData = weeklyWeatherData.map(value => {
+    return {
+      'x': getDay(value.dt),
+      'y': Math.floor(value.temp.day)
+    }
+  })
+  weeklyData.pop();
+  return [{ "id": "7 Day Forecast", "data": weeklyData }]
+
+};
+
+const Forecast = (props) => {
+
+  if(props.weeklyWeatherData === undefined) return null;
+  const checking = parseWeeklyData(props.weeklyWeatherData);
+
   return (
     <div className="container">
-      <ForecastGraph data={data}/>
-      {/* <ForecastGraph /> */}
+      <ForecastGraph data={checking}/>
     </div>
   )
 }

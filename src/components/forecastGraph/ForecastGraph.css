@@ -1,0 +1,9 @@
+.toolTip {
+  border: 1px solid rgba(41, 41, 41, 0.2);
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.15);
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ResponsiveLine } from '@nivo/line';
+import {ResponsiveLine } from '@nivo/line';
+import '../forecastGraph/ForecastGraph.css'
 
 const lineGraphSettings = {
     theme: {
@@ -16,17 +17,25 @@ const lineGraphSettings = {
 
 const ForecastGraph = ({ data }) => {
 
-    // lowest temp
+    // temp ranges
     const min = Math.min(...data[0].data.map(value => value.y))
+    const max = Math.max(...data[0].data.map(value => value.y))
     return (
         <ResponsiveLine
             theme={lineGraphSettings.theme}
             data={data}
             margin={{ top: 50, right: 25, bottom: 50, left: 75 }}
             xScale={{ type: 'point' }}
-            yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
+            yScale={{
+                type: 'linear',
+                base: 10,
+                min: min,
+                max: max+2,
+                stacked: true,
+                reverse: false
+            }}
             enableArea={true}
-            areaOpacity={0.07}
+            areaOpacity={0.1}
             areaBaselineValue={min}
             yFormat={value => `${value}°`}
             curve="monotoneX"
@@ -54,12 +63,12 @@ const ForecastGraph = ({ data }) => {
             pointColor={{ theme: 'background' }}
             pointBorderWidth={2}
             pointBorderColor={{ from: 'serieColor' }}
-            isInteractive={false}
-            enablePointLabel={true}
+            isInteractive={true}
             pointLabel="y"
-            pointLabelYOffset={-20}
-            enableCrosshair={false}
             useMesh={true}
+            tooltip={(props) => {
+                return <div className='toolTip'>{props.point.data.y}°</div>
+            }}
         />
     )
 }
