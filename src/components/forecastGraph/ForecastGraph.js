@@ -24,7 +24,7 @@ const ForecastGraph = ({ data }) => {
         <ResponsiveLine
             theme={lineGraphSettings.theme}
             data={data}
-            margin={{ top: 50, right: 25, bottom: 50, left: 75 }}
+            margin={{ top: 50, right: 50, bottom: 50, left: 75 }}
             xScale={{ type: 'point' }}
             yScale={{
                 type: 'linear',
