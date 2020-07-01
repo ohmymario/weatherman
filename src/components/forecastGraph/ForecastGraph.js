@@ -33,7 +33,6 @@ const ForecastGraph = (props) => {
             if (obj[key] === 'Low') {
                 const minVal = Math.min(...obj.data.map(value => value.y))
                 min = parseInt(minVal / 10, 10) * 10;
-                console.log(`min ${min}`)
             }
         }))
     };

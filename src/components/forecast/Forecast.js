@@ -3,14 +3,14 @@ import ForecastGraph from '../forecastGraph/ForecastGraph'
 
 import '../forecast/Forecast.css'
 
-function getDay(UNIX_timestamp){
+function getDay(UNIX_timestamp) {
   const a = new Date(UNIX_timestamp * 1000);
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dayName = days[a.getDay()];
   return dayName;
 }
 
-function getTime(UNIX_timestamp){
+function getTime(UNIX_timestamp) {
   const a = new Date(UNIX_timestamp * 1000);
   const options = {
     hour: 'numeric',
@@ -66,42 +66,46 @@ const parseWeeklyHighLowData = (weeklyWeatherData) => {
 
 const Forecast = (props) => {
 
-  const [ graphData, setGraphData ] = useState(null);
-  const [ weekly, setWeeklyData ] = useState(null);
-  const [ hourly, setHourlyData ] = useState(null);
-  const [ highLow, setHighLowData ] = useState(null);
-  const [ axis, setAxis ] = useState(0);
+  const [graphData, setGraphData] = useState(null);
+  const [weekly, setWeeklyData] = useState(null);
+  const [hourly, setHourlyData] = useState(null);
+  const [highLow, setHighLowData] = useState(null);
+  const [active, setActive] = useState('7day')
+  const [axis, setAxis] = useState(0);
   const { weeklyWeatherData, hourlyWeatherData } = props;
 
   useEffect(() => {
-    if(weeklyWeatherData === undefined) return;
+    if (weeklyWeatherData === undefined) return;
     setGraphData(parseWeeklyData(weeklyWeatherData))
 
   }, [weeklyWeatherData])
 
   useEffect(() => {
-    if(weeklyWeatherData === undefined || hourlyWeatherData === undefined ) return;
+    if (weeklyWeatherData === undefined || hourlyWeatherData === undefined) return;
     setWeeklyData(parseWeeklyData(weeklyWeatherData))
     setHighLowData(parseWeeklyHighLowData(weeklyWeatherData))
     setHourlyData(parseHourlyData(hourlyWeatherData))
 
   }, [hourlyWeatherData, weeklyWeatherData])
 
-  function changeGraph(type, axis = 0) {
+  function changeGraph(type, e, axis = 0) {
+    setActive(e.target.value)
     setGraphData(type)
     setAxis(axis)
   }
 
-  if(weeklyWeatherData === undefined || hourlyWeatherData === undefined ) return null;
+  if (weeklyWeatherData === undefined || hourlyWeatherData === undefined) return null;
 
   return (
     <div className="forecast-container">
       <div className="forecast-btns-container">
-        <button className="forecast-btn" onClick={() => changeGraph(hourly, -30)}>24 Hour</button>
-        <button className="forecast-btn" onClick={() => changeGraph(weekly)}>Weekly</button>
-        <button className="forecast-btn" onClick={() => changeGraph(highLow)}>High / Low</button>
+        <button className={active === '24hours' ? 'active-btn' : ''} value={'24hours'} onClick={(e) => changeGraph(hourly, e, -30)}>24 Hours</button>
+        <button className={active === '7day' ? 'active-btn' : ''} value={'7day'} onClick={(e) => changeGraph(weekly, e)}>Next 7 days</button>
+        <button className={active === 'highlow' ? 'active-btn' : ''} value={'highlow'} onClick={(e) => changeGraph(highLow, e)}>High / Low</button>
       </div>
-      { graphData !== null && <ForecastGraph data={graphData} bAxis={axis}/> }
+      <div className="forecast-graph-container" >
+        {graphData !== null && <ForecastGraph data={graphData} bAxis={axis} />}
+      </div>
     </div>
   )
 }

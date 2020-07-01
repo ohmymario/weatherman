@@ -13,6 +13,7 @@ html {
 body {
   margin: 0;
   font-family: "Work Sans", sans-serif;
+  background-color: rgb(250, 250, 251);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,4 +25,8 @@ code {
 
 p {
   margin: 0;
+}
+
+button {
+  font-family: "Work Sans", sans-serif;
 }
