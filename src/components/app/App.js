@@ -67,7 +67,7 @@ function App() {
       <Header location={location}  setLocation={setLocation} />
       <CurrentTemp currentWeatherData={currentWeatherData}/>
       <WeatherExtra currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData}/>
-      <Forecast weeklyWeatherData={weeklyWeatherData}/>
+      <Forecast weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData}/>
     </div>
   );
 }
