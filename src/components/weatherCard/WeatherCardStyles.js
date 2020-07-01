@@ -12,6 +12,12 @@ const StyledCardContainer = styled.div`
   color: ${props => props.color};
   background: ${props => props.color};
   margin: 1rem;
+  :first-child {
+    margin: 1rem 1rem 1rem 0rem;
+  }
+  :last-child {
+    margin: 1rem 0rem 1rem 1rem;
+  }
 
   p {
     color: white;
