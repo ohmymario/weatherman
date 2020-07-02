@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1.5rem 0 1rem 0;
 }
 
 .weather-description {
@@ -13,7 +14,7 @@
 
 .weather-temperature {
   font-weight: 600;
-  font-size: 4.5rem;
+  font-size: 3.2rem;
   position: relative;
 }
 
