@@ -65,6 +65,7 @@ const parseWeeklyHighLowData = (weeklyWeatherData) => {
 };
 
 const Forecast = (props) => {
+  const { weeklyWeatherData, hourlyWeatherData } = props;
 
   const [graphData, setGraphData] = useState(null);
   const [weekly, setWeeklyData] = useState(null);
@@ -72,13 +73,14 @@ const Forecast = (props) => {
   const [highLow, setHighLowData] = useState(null);
   const [active, setActive] = useState('7day')
   const [axis, setAxis] = useState(0);
-  const { weeklyWeatherData, hourlyWeatherData } = props;
 
   useEffect(() => {
     if (weeklyWeatherData === undefined) return;
     setGraphData(parseWeeklyData(weeklyWeatherData))
+    changeGraph(weekly)
+    setActive('7day')
 
-  }, [weeklyWeatherData])
+  }, [weekly, weeklyWeatherData])
 
   useEffect(() => {
     if (weeklyWeatherData === undefined || hourlyWeatherData === undefined) return;
@@ -89,7 +91,9 @@ const Forecast = (props) => {
   }, [hourlyWeatherData, weeklyWeatherData])
 
   function changeGraph(type, e, axis = 0) {
-    setActive(e.target.value)
+    if(e) {
+      setActive(e.target.value)
+    }
     setGraphData(type)
     setAxis(axis)
   }
