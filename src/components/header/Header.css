@@ -1,11 +1,12 @@
 h1 {
   margin: 0;
 }
+
 .header-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
+  justify-content: center;
+  width: 95%;
   /* TEST NOT KEEPING */
   min-height: 16rem;
 }
@@ -13,79 +14,5 @@ h1 {
 .location {
   font-size: 6.5rem;
   font-weight: 600;
-  width: 65%;
   text-transform: capitalize;
-}
-
-.searchContainer {
-  width: 35%;
-  padding-right: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.goSearch {
-  /* alter SVG from react-icons */
-}
-
-.search {
-  width: 85%;
-  position: relative;
-  display: inline-block;
-}
-
-.searchIcon,
-.submitIcon {
-  position: absolute;
-  top: 0.5rem;
-  right: 0;
-  cursor: pointer;
-  transition: all 0.25s linear;
-}
-
-.searchIcon:hover,
-.submitIcon:hover {
-  filter: brightness(90%);
-  transform: scale(1.05);
-}
-
-.submitIcon {
-  z-index: 1000;
-}
-
-#inputSubmit {
-  display: none;
-}
-
-input[type="text"] {
-  font-size: 3.5rem;
-  height: 3.75rem;
-  display: inline-block;
-  font-family: "Raleway";
-  font-weight: 200;
-  border: none;
-  outline: none;
-  color: #555;
-  width: 0%;
-  transition: width 0.45s cubic-bezier(0, 0.795, 0, 1),
-    border-bottom 0.1s linear;
-  cursor: pointer;
-}
-
-input[type="text"]:focus:hover {
-  border-bottom: 1px solid rgba(121, 121, 121, 0.7);
-}
-
-/* show the input if either focused or text is present */
-input[type="text"]:focus,
-input[type="text"]:not(:placeholder-shown) {
-  width: 87%;
-  z-index: -1;
-  border-bottom: 1px solid #bbb;
-  cursor: text;
-}
-
-input[type="submit"]:hover {
-  opacity: 0.8;
 }

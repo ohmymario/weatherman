@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 // Components
+import Search from '../search/Search';
 import Header from '../header/Header';
 import CurrentTemp from '../currentTemp/CurrentTemp';
 import WeatherExtra from '../weatherExtra/WeatherExtra';
 import Forecast from '../forecast/Forecast';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 function App() {
@@ -41,14 +42,10 @@ function App() {
       // ONLY FOR THE LAT, LON, LOCATION NAME
       const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${process.env.REACT_APP_API_KEY}`);
       const data = await res.json();
-      setLocation(data.name)
-
       const { lat, lon } = data.coord;
       const resOneCall = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=imperial&appid=${process.env.REACT_APP_API_KEY}`);
       const resOneCallData = await resOneCall.json();
-
       const {current, daily, hourly} = resOneCallData;
-      // change hourly to only 24hrs
       setCurrentWeatherData(current);
       setHourlyWeatherData(hourly);
       setWeeklyWeatherData(daily);
@@ -60,11 +57,12 @@ function App() {
 
   // SET LOADING FOR THE COMPONENTS WHILE THE DATA IS BEING FETCHED
 
-  library.add(faSun, faThermometerHalf, faWind, faTint, faTachometerAlt)
+  library.add(faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch)
 
   return (
     <div className="app-container">
-      <Header location={location}  setLocation={setLocation} />
+      <Search setLocation={setLocation} />
+      <Header location={location} />
       <CurrentTemp currentWeatherData={currentWeatherData}/>
       <WeatherExtra currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData}/>
       <Forecast weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData}/>
