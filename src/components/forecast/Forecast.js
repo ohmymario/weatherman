@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ForecastGraph from '../forecastGraph/ForecastGraph'
-
 import '../forecast/Forecast.css'
 
 function getDay(UNIX_timestamp) {
@@ -98,18 +97,21 @@ const Forecast = (props) => {
     setAxis(axis)
   }
 
-  if (weeklyWeatherData === undefined || hourlyWeatherData === undefined) return null;
-
   return (
     <div className="forecast-container">
-      <div className="forecast-btns-container">
-        <button className={active === '24hours' ? 'active-btn' : ''} value={'24hours'} onClick={(e) => changeGraph(hourly, e, -30)}>24 Hours</button>
-        <button className={active === '7day' ? 'active-btn' : ''} value={'7day'} onClick={(e) => changeGraph(weekly, e)}>Next 7 days</button>
-        <button className={active === 'highlow' ? 'active-btn' : ''} value={'highlow'} onClick={(e) => changeGraph(highLow, e)}>High / Low</button>
-      </div>
-      <div className="forecast-graph-container" >
-        {graphData !== null && <ForecastGraph data={graphData} bAxis={axis} />}
-      </div>
+      {
+        graphData &&
+        <>
+          <div className="forecast-btns-container">
+            <button className={active === '24hours' ? 'active-btn' : ''} value={'24hours'} onClick={(e) => changeGraph(hourly, e, -30)}>24 Hours</button>
+            <button className={active === '7day' ? 'active-btn' : ''} value={'7day'} onClick={(e) => changeGraph(weekly, e)}>Next 7 days</button>
+            <button className={active === 'highlow' ? 'active-btn' : ''} value={'highlow'} onClick={(e) => changeGraph(highLow, e)}>High / Low</button>
+          </div>
+          <div className="forecast-graph-container" >
+            {graphData !== null && <ForecastGraph data={graphData} bAxis={axis} />}
+          </div>
+        </>
+      }
     </div>
   )
 }

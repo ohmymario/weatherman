@@ -14,14 +14,14 @@ import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch } f
 
 function App() {
 
-  const [ location, setLocation ] = useState('Fresno');
-  const [ currentWeatherData, setCurrentWeatherData ] = useState();
-  const [ hourlyWeatherData, setHourlyWeatherData ] = useState();
-  const [ weeklyWeatherData, setWeeklyWeatherData ] = useState();
+  const [location, setLocation] = useState('San Jose');
+  const [currentWeatherData, setCurrentWeatherData] = useState();
+  const [hourlyWeatherData, setHourlyWeatherData] = useState();
+  const [weeklyWeatherData, setWeeklyWeatherData] = useState();
 
-  function timeConverter(UNIX_timestamp){
+  function timeConverter(UNIX_timestamp) {
     var a = new Date(UNIX_timestamp * 1000);
-    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var year = a.getFullYear();
     var month = months[a.getMonth()];
     var date = a.getDate();
@@ -45,7 +45,7 @@ function App() {
       const { lat, lon } = data.coord;
       const resOneCall = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=imperial&appid=${process.env.REACT_APP_API_KEY}`);
       const resOneCallData = await resOneCall.json();
-      const {current, daily, hourly} = resOneCallData;
+      const { current, daily, hourly } = resOneCallData;
       setCurrentWeatherData(current);
       setHourlyWeatherData(hourly);
       setWeeklyWeatherData(daily);
@@ -60,13 +60,13 @@ function App() {
   library.add(faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch)
 
   return (
-    <div className="app-container">
-      <Search setLocation={setLocation} />
-      <Header location={location} />
-      <CurrentTemp currentWeatherData={currentWeatherData}/>
-      <WeatherExtra currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData}/>
-      <Forecast weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData}/>
-    </div>
+      <div className="app-container">
+        <Search setLocation={setLocation} />
+        <Header location={location} />
+        <CurrentTemp currentWeatherData={currentWeatherData} />
+        <WeatherExtra currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData} />
+        <Forecast weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData} />
+      </div>
   );
 }
 
