@@ -65,5 +65,14 @@ export const Rainy = () => {
   )
 }
 
+export const Hazy = () => {
+  return (
+    <div class="weather-icon">
+      <div class="cloud"></div>
+      <div class="haze"></div>
+    </div>
+  )
+}
+
 
 

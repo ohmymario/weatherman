@@ -9,7 +9,7 @@ import Header from '../header/Header';
 import CurrentTemp from '../currentTemp/CurrentTemp';
 import WeatherExtra from '../weatherExtra/WeatherExtra';
 import Forecast from '../forecast/Forecast';
-import { SunShower, ThunderStorm, Cloudy, Flurries, Sunny, Rainy } from '../weatherIcons/WeatherIcons';
+import { SunShower, ThunderStorm, Cloudy, Flurries, Sunny, Rainy, Hazy } from '../weatherIcons/WeatherIcons';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -61,7 +61,6 @@ function App() {
   const SetIcon = () => {
     if(!currentWeatherData) return
     let { id } = currentWeatherData.weather[0]
-    id=300;
     // Thunderstorm
     if(_.inRange(id, 200, 299)) return <ThunderStorm/>
     // Drizzle, Rainy
@@ -69,15 +68,12 @@ function App() {
     if(_.inRange(id, 500, 599)) return <Rainy/>
     // Snow
     if(_.inRange(id, 600, 699)) return <Flurries/>
-
-    // NEED MIST ICON
-    console.log(_.inRange(id, 700, 799))
-
+    // Hazy
+    if(_.inRange(id, 700, 799)) return <Hazy/>
     // Clear
     if(id===800) return <Sunny/>
     // Clouds
     if(_.inRange(id, 801, 899)) return <Cloudy/>
-    // if(test.startsWith('8')) return <Sunny/>
   }
 
   // SET LOADING FOR THE COMPONENTS WHILE THE DATA IS BEING FETCHED
