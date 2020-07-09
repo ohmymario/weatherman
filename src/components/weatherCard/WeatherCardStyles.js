@@ -5,18 +5,16 @@ const StyledCardContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 150px;
+  min-width: 150px;
   padding: 20px 15px 20px 15px;
   border-radius: 15px;
   box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
   color: ${props => props.color};
   background: ${props => props.color};
   margin: 1rem;
-  :first-child {
-    margin: 1rem 1rem 1rem 0rem;
-  }
-  :last-child {
-    margin: 1rem 0rem 1rem 1rem;
+  :hover {
+    /* fix box shadow for animations */
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.9);
   }
 
   p {
