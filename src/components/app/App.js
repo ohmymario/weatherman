@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import _ from 'lodash';
-
 
 // Components
+import WeatherIconsContainer from '../weatherIconsContainer/WeatherIconsContainer';
 import Search from '../search/Search';
 import Header from '../header/Header';
 import CurrentTemp from '../currentTemp/CurrentTemp';
 import WeatherCardContainer from '../weatherCardContainer/WeatherCardContainer';
 import Forecast from '../forecast/Forecast';
-import { SunShower, ThunderStorm, Cloudy, Flurries, Sunny, Rainy, Hazy } from '../weatherIcons/WeatherIcons';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -31,6 +29,7 @@ function App() {
       const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${process.env.REACT_APP_API_KEY}`);
       const data = await res.json();
       const { lat, lon } = data.coord;
+
       const resOneCall = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=imperial&appid=${process.env.REACT_APP_API_KEY}`);
       const resOneCallData = await resOneCall.json();
       const { current, daily, hourly } = resOneCallData;
@@ -43,23 +42,6 @@ function App() {
 
   }, [location]);
 
-  const SetIcon = () => {
-    if(!currentWeatherData) return
-    let { id } = currentWeatherData.weather[0]
-    // Thunderstorm
-    if(_.inRange(id, 200, 299)) return <ThunderStorm/>
-    // Drizzle, Rainy
-    if(_.inRange(id, 300, 399)) return <Rainy/>
-    if(_.inRange(id, 500, 599)) return <Rainy/>
-    // Snow
-    if(_.inRange(id, 600, 699)) return <Flurries/>
-    // Hazy
-    if(_.inRange(id, 700, 799)) return <Hazy/>
-    // Clear
-    if(id===800) return <Sunny/>
-    // Clouds
-    if(_.inRange(id, 801, 899)) return <Cloudy/>
-  }
 
   // SET LOADING FOR THE COMPONENTS WHILE THE DATA IS BEING FETCHED
 
@@ -67,7 +49,7 @@ function App() {
 
   return (
       <div className="app-container">
-        { SetIcon() }
+        <WeatherIconsContainer currentWeatherData={currentWeatherData}/>
         <Search setLocation={setLocation} />
         <Header location={location} />
         <CurrentTemp currentWeatherData={currentWeatherData} />
