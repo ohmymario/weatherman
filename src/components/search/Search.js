@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Search.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Header = (props) => {
+const Search = (props) => {
 
   const { setLocation } = props;
 
@@ -68,4 +68,4 @@ const Header = (props) => {
   )
 }
 
-export default Header;
+export default Search;
