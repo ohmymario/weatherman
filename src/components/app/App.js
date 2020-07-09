@@ -7,7 +7,7 @@ import _ from 'lodash';
 import Search from '../search/Search';
 import Header from '../header/Header';
 import CurrentTemp from '../currentTemp/CurrentTemp';
-import WeatherExtra from '../weatherExtra/WeatherExtra';
+import WeatherCardContainer from '../weatherCardContainer/WeatherCardContainer';
 import Forecast from '../forecast/Forecast';
 import { SunShower, ThunderStorm, Cloudy, Flurries, Sunny, Rainy, Hazy } from '../weatherIcons/WeatherIcons';
 
@@ -22,21 +22,6 @@ function App() {
   const [hourlyWeatherData, setHourlyWeatherData] = useState();
   const [weeklyWeatherData, setWeeklyWeatherData] = useState();
 
-  function timeConverter(UNIX_timestamp) {
-    var a = new Date(UNIX_timestamp * 1000);
-    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var year = a.getFullYear();
-    var month = months[a.getMonth()];
-    var date = a.getDate();
-
-    var AmOrPm = a.getHours() >= 12 ? 'PM' : 'AM';
-    var hour = (a.getHours() % 12) || 12;
-    var min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes();
-    var sec = a.getSeconds() < 10 ? '0' + a.getSeconds() : a.getSeconds();
-
-    var time = `${month} ${date}, ${year} ${hour}:${min} ${AmOrPm}`
-    return time;
-  }
 
   // Daily | Weekly | Hourly Weather Data
   useEffect(() => {
@@ -86,7 +71,7 @@ function App() {
         <Search setLocation={setLocation} />
         <Header location={location} />
         <CurrentTemp currentWeatherData={currentWeatherData} />
-        <WeatherExtra currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData} />
+        <WeatherCardContainer currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData} />
         <Forecast weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData} />
       </div>
   );
