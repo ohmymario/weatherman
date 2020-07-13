@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ForecastGraph from '../forecastGraph/ForecastGraph'
-import '../forecast/Forecast.css'
+import './ForecastGraphContainer.css'
 
 function getDay(UNIX_timestamp) {
   const a = new Date(UNIX_timestamp * 1000);
@@ -63,7 +63,7 @@ const parseWeeklyHighLowData = (weeklyWeatherData) => {
   return [{ "id": "Low", "data": LowWeekly }, { "id": "High", "data": HighWeekly }]
 };
 
-const Forecast = (props) => {
+const ForecastGraphContainer = (props) => {
   const { weeklyWeatherData, hourlyWeatherData } = props;
 
   const [graphData, setGraphData] = useState(null);
@@ -116,4 +116,4 @@ const Forecast = (props) => {
   )
 }
 
-export default Forecast;
+export default ForecastGraphContainer;

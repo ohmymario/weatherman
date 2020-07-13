@@ -8,7 +8,7 @@ import Search from '../search/Search';
 import Header from '../header/Header';
 import CurrentTemp from '../currentTemp/CurrentTemp';
 import WeatherCardContainer from '../weatherCardContainer/WeatherCardContainer';
-import Forecast from '../forecast/Forecast';
+import ForecastGraphContainer from '../forecastGraphContainer/ForecastGraphContainer';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -60,7 +60,7 @@ function App() {
           <Header location={location} />
           <CurrentTemp currentWeatherData={currentWeatherData} />
           <WeatherCardContainer currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData} />
-          <Forecast weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData} />
+          <ForecastGraphContainer weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData} />
         </div>
       </div>
   );
