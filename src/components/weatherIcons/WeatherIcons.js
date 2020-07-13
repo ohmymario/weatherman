@@ -3,23 +3,23 @@ import './WeatherIcons.css';
 
 export const SunShower = () => {
   return (
-    <div class="weather-icon">
-      <div class="cloud"></div>
-      <div class="sun">
-        <div class="rays"></div>
+    <div className="weather-icon">
+      <div className="cloud"></div>
+      <div className="sun">
+        <div className="rays"></div>
       </div>
-      <div class="rain"></div>
+      <div className="rain"></div>
     </div>
   )
 }
 
 export const ThunderStorm = () => {
   return (
-    <div class="weather-icon">
-      <div class="cloud"></div>
-      <div class="lightning">
-        <div class="bolt"></div>
-        <div class="bolt"></div>
+    <div className="weather-icon">
+      <div className="cloud"></div>
+      <div className="lightning">
+        <div className="bolt"></div>
+        <div className="bolt"></div>
       </div>
     </div>
   )
@@ -27,20 +27,20 @@ export const ThunderStorm = () => {
 
 export const Cloudy = () => {
   return (
-    <div class="weather-icon">
-      <div class="cloud"></div>
-      <div class="cloud"></div>
+    <div className="weather-icon">
+      <div className="cloud"></div>
+      <div className="cloud"></div>
     </div>
   )
 }
 
 export const Flurries = () => {
   return (
-    <div class="weather-icon">
-      <div class="cloud"></div>
-      <div class="snow">
-        <div class="flake"></div>
-        <div class="flake"></div>
+    <div className="weather-icon">
+      <div className="cloud"></div>
+      <div className="snow">
+        <div className="flake"></div>
+        <div className="flake"></div>
       </div>
     </div>
   )
@@ -48,9 +48,9 @@ export const Flurries = () => {
 
 export const Sunny = () => {
   return (
-    <div class="weather-icon">
-      <div class="sun">
-        <div class="rays"></div>
+    <div className="weather-icon">
+      <div className="sun">
+        <div className="rays"></div>
       </div>
     </div>
   )
@@ -58,18 +58,18 @@ export const Sunny = () => {
 
 export const Rainy = () => {
   return (
-    <div class="weather-icon">
-      <div class="cloud"></div>
-      <div class="rain"></div>
+    <div className="weather-icon">
+      <div className="cloud"></div>
+      <div className="rain"></div>
     </div>
   )
 }
 
 export const Hazy = () => {
   return (
-    <div class="weather-icon">
-      <div class="cloud"></div>
-      <div class="haze"></div>
+    <div className="weather-icon">
+      <div className="cloud"></div>
+      <div className="haze"></div>
     </div>
   )
 }

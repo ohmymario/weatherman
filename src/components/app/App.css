@@ -1,5 +1,10 @@
 .app-container {
   position: relative;
+  width: 100%;
+}
+
+.centered-container {
+  position: relative;
   max-width: 1200px;
   display: flex;
   flex-direction: column;

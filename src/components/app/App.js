@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 // Components
+import CountryFlag from '../countryFlag/CountryFlag'
 import WeatherIconsContainer from '../weatherIconsContainer/WeatherIconsContainer';
 import Search from '../search/Search';
 import Header from '../header/Header';
@@ -16,6 +17,7 @@ import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch } f
 function App() {
 
   const [location, setLocation] = useState('San Jose');
+  const [flagCountry, setFlagCountry] = useState('')
   const [currentWeatherData, setCurrentWeatherData] = useState();
   const [hourlyWeatherData, setHourlyWeatherData] = useState();
   const [weeklyWeatherData, setWeeklyWeatherData] = useState();
@@ -28,7 +30,9 @@ function App() {
       // ONLY FOR THE LAT, LON, LOCATION NAME
       const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${process.env.REACT_APP_API_KEY}`);
       const data = await res.json();
+      const { country } = data.sys;
       const { lat, lon } = data.coord;
+      setFlagCountry(country)
 
       const resOneCall = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=imperial&appid=${process.env.REACT_APP_API_KEY}`);
       const resOneCallData = await resOneCall.json();
@@ -49,12 +53,15 @@ function App() {
 
   return (
       <div className="app-container">
-        <WeatherIconsContainer currentWeatherData={currentWeatherData}/>
-        <Search setLocation={setLocation} />
-        <Header location={location} />
-        <CurrentTemp currentWeatherData={currentWeatherData} />
-        <WeatherCardContainer currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData} />
-        <Forecast weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData} />
+        <CountryFlag flagCountry={flagCountry}/>
+        <div className="centered-container">
+          <WeatherIconsContainer currentWeatherData={currentWeatherData}/>
+          <Search setLocation={setLocation} />
+          <Header location={location} />
+          <CurrentTemp currentWeatherData={currentWeatherData} />
+          <WeatherCardContainer currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData} />
+          <Forecast weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData} />
+        </div>
       </div>
   );
 }
