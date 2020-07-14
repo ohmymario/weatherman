@@ -55,6 +55,17 @@ const StyledCardContainer = styled.div`
     font-size: 1rem;
     padding: 0 0 5px 0;
   }
+
+  .card-spin {
+    animation: spin 8s linear infinite;
+  }
+
+  @keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 `
 
 export default StyledCardContainer;

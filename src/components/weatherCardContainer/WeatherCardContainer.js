@@ -34,38 +34,44 @@ const WeatherCardContainer = (props) => {
 
   return (
     <div className="weather-card-container">
-      {allWeatherData &&
+      {allWeatherData ?
       <>
         <WeatherCard
           data={`${allWeatherData.feels_like}°`}
           type={`Feels Like`}
           icon='sun'
-          unit={''} c
-          color='rgba(80, 79, 211, 0.9)'/>
+          />
         <WeatherCard
           data={allWeatherData.humidity}
           type={`Humidity`}
           icon='tint'
           unit={'%'}
-          color='rgba(80, 79, 211, 0.9)'/>
+          />
         <WeatherCard
           data={allWeatherData.wind_speed}
           type={`Wind`}
           icon='wind'
           unit={'mph'}
-          color='rgba(80, 79, 211, 0.9)'/>
+          />
         <WeatherCard
           data={allWeatherData.pressure}
           type={`Pressure`}
           icon='tachometer-alt'
           unit={'mbar'}
-          color='rgba(80, 79, 211, 0.9)'/>
+          />
         <WeatherCard
           data={`${allWeatherData.min}° | ${allWeatherData.max}°`}
           type={`Min/Max`}
           icon='thermometer-half'
-          unit={''}
-          color='rgba(80, 79, 211, 0.9)'/>
+          />
+      </>
+        :
+      <>
+        <WeatherCard/>
+        <WeatherCard/>
+        <WeatherCard/>
+        <WeatherCard/>
+        <WeatherCard/>
       </>
       }
     </div>

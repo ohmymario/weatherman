@@ -11,7 +11,7 @@ import WeatherCardContainer from '../weatherCardContainer/WeatherCardContainer';
 import ForecastGraphContainer from '../forecastGraphContainer/ForecastGraphContainer';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
 
   // SET LOADING FOR THE COMPONENTS WHILE THE DATA IS BEING FETCHED
 
-  library.add(faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch)
+  library.add(faSun, faThermometerHalf, faWind, faTint, faTachometerAlt, faSearch, faSpinner)
 
   return (
       <div className="app-container">
