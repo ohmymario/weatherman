@@ -28,29 +28,53 @@ const WeatherCardContainer = (props) => {
 
   }, [props])
 
-  if(!allWeatherData) return null;
-  // humidity/blue/%/tint,
-  // feels_like/purple/degree/sun,
-  // pressure/yellow/mb/tachometer,
-  // wind_speed/green/mph/wind | max,
-  // min/#D13D41 scarlet/degree/thermometer
 
-  const { humidity, feels_like, wind_speed, max, min, pressure } = allWeatherData;
+  // Render the container at all times
+  // Bring in LOADING cards in case allWeatherData isn't ready
 
   return (
     <div className="weather-card-container">
-      <WeatherCard data={`${feels_like}°`} type={`Feels Like`} icon='sun' unit={""} color='rgba(80, 79, 211, 0.9)'/>
-      <WeatherCard data={humidity} type={`Humidity`} icon='tint' unit={"%"} color='rgba(80, 79, 211, 0.9)'/>
-      <WeatherCard data={wind_speed} type={`Wind`} icon='wind' unit={"mph"} color='rgba(80, 79, 211, 0.9)'/>
-      <WeatherCard data={pressure} type={`Pressure`} icon='tachometer-alt' unit={"mbar"} color='rgba(80, 79, 211, 0.9)'/>
-      <WeatherCard data={`${min}° | ${max}°`} type={`Min/Max`} icon='thermometer-half' unit={""} color='rgba(80, 79, 211, 0.9)'/>
-      {/* <WeatherCard data={`${feels_like}°`} type={`Feels Like`} icon='sun' unit={""} color='rgba(80, 79, 211)'/>
-      <WeatherCard data={humidity} type={`Humidity`} icon='tint' unit={"%"} color='rgba(84, 175, 237)'/>
-      <WeatherCard data={wind_speed} type={`Wind`} icon='wind' unit={"mph"} color='rgba(89, 198, 58)'/>
-      <WeatherCard data={pressure} type={`Pressure`} icon='tachometer-alt' unit={"mbar"} color='rgba(245, 206, 2)'/>
-      <WeatherCard data={`${min}° | ${max}°`} type={`Min/Max`} icon='thermometer-half' unit={""} color='rgba(209, 61, 65)'/> */}
+      {allWeatherData &&
+      <>
+        <WeatherCard
+          data={`${allWeatherData.feels_like}°`}
+          type={`Feels Like`}
+          icon='sun'
+          unit={''} c
+          color='rgba(80, 79, 211, 0.9)'/>
+        <WeatherCard
+          data={allWeatherData.humidity}
+          type={`Humidity`}
+          icon='tint'
+          unit={'%'}
+          color='rgba(80, 79, 211, 0.9)'/>
+        <WeatherCard
+          data={allWeatherData.wind_speed}
+          type={`Wind`}
+          icon='wind'
+          unit={'mph'}
+          color='rgba(80, 79, 211, 0.9)'/>
+        <WeatherCard
+          data={allWeatherData.pressure}
+          type={`Pressure`}
+          icon='tachometer-alt'
+          unit={'mbar'}
+          color='rgba(80, 79, 211, 0.9)'/>
+        <WeatherCard
+          data={`${allWeatherData.min}° | ${allWeatherData.max}°`}
+          type={`Min/Max`}
+          icon='thermometer-half'
+          unit={''}
+          color='rgba(80, 79, 211, 0.9)'/>
+      </>
+      }
     </div>
   )
 }
 
+{/* <WeatherCard data={`${feels_like}°`} type={`Feels Like`} icon='sun' unit={""} color='rgba(80, 79, 211)'/>
+<WeatherCard data={humidity} type={`Humidity`} icon='tint' unit={"%"} color='rgba(84, 175, 237)'/>
+<WeatherCard data={wind_speed} type={`Wind`} icon='wind' unit={"mph"} color='rgba(89, 198, 58)'/>
+<WeatherCard data={pressure} type={`Pressure`} icon='tachometer-alt' unit={"mbar"} color='rgba(245, 206, 2)'/>
+<WeatherCard data={`${min}° | ${max}°`} type={`Min/Max`} icon='thermometer-half' unit={""} color='rgba(209, 61, 65)'/> */}
 export default WeatherCardContainer;
