@@ -1,21 +1,23 @@
-import React from 'react'
-import './CurrentTemp.css'
+import React from 'react';
+import StyledWeatherContainer from './CurrentTempStyles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CurrentWeather = (props) => {
-  // HAVE A LOADING STATE IF THE WEATHER DATA ISNT FETCHED YET!
-  if(!props.currentWeatherData) return null;
-
-  const { temp, weather } = props.currentWeatherData;
-
 
   return (
-    <div className="weather-container">
-        <p className="weather-description">{weather[0].description}</p>
-        <div className="weather-temperature">
-          {Math.round(temp)}
-          <span className="weather-unit">&#176;F</span>
-        </div>
-    </div>
+    <StyledWeatherContainer>
+      {props.currentWeatherData ?
+        <>
+          <p className="weather-description">{props.currentWeatherData.weather[0].description}</p>
+          <div className="weather-temperature">
+            {Math.round(props.currentWeatherData.temp)}
+            <span className="weather-unit">&#176;F</span>
+          </div>
+        </>
+        :
+        <FontAwesomeIcon className='icon-spin' icon='spinner' size='3x'/>
+      }
+    </StyledWeatherContainer>
   )
 }
 

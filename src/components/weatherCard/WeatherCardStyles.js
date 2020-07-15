@@ -57,7 +57,7 @@ const StyledCardContainer = styled.div`
   }
 
   .card-spin {
-    animation: spin 8s linear infinite;
+    animation: spin 5s linear infinite;
   }
 
   @keyframes spin {
