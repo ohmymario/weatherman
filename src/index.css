@@ -36,3 +36,7 @@ p {
 button {
   font-family: "Work Sans", sans-serif;
 }
+
+h1 {
+  margin: 0;
+}

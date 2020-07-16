@@ -1,8 +1,6 @@
-h1 {
-  margin: 0;
-}
+import styled from 'styled-components';
 
-.header-container {
+const StyledHeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,10 +9,13 @@ h1 {
   /* TEST NOT KEEPING */
   min-height: 7rem;
   max-height: 16rem;
-}
+
 
 .location {
   font-size: 6.5rem;
   font-weight: 600;
   text-transform: capitalize;
 }
+`;
+
+export default StyledHeaderContainer;

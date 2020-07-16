@@ -28,10 +28,6 @@ const WeatherCardContainer = (props) => {
 
   }, [props])
 
-
-  // Render the container at all times
-  // Bring in LOADING cards in case allWeatherData isn't ready
-
   return (
     <div className="weather-card-container">
       {allWeatherData ?
@@ -54,16 +50,17 @@ const WeatherCardContainer = (props) => {
           unit={'mph'}
           />
         <WeatherCard
+          data={`${allWeatherData.min}° | ${allWeatherData.max}°`}
+          type={`Min/Max`}
+          icon='thermometer-half'
+        />
+        <WeatherCard
           data={allWeatherData.pressure}
           type={`Pressure`}
           icon='tachometer-alt'
           unit={'mbar'}
           />
-        <WeatherCard
-          data={`${allWeatherData.min}° | ${allWeatherData.max}°`}
-          type={`Min/Max`}
-          icon='thermometer-half'
-          />
+
       </>
         :
       <>
