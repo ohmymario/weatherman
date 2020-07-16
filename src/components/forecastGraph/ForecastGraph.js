@@ -52,8 +52,6 @@ const ForecastGraph = (props) => {
         )
     }
 
-
-
     /// change what data value to choose depending on how many passed in
     return (
         <ResponsiveLine

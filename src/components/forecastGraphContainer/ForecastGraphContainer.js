@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ForecastGraph from '../forecastGraph/ForecastGraph'
-import './ForecastGraphContainer.css'
+import StyledForecastGraphContainer from './ForecastGraphContainerStyles';
 
 function getDay(UNIX_timestamp) {
   const a = new Date(UNIX_timestamp * 1000);
@@ -98,9 +98,9 @@ const ForecastGraphContainer = (props) => {
   }
 
   return (
-    <div className="forecast-container">
+    <StyledForecastGraphContainer>
       {
-        graphData &&
+        graphData ?
         <>
           <div className="forecast-btns-container">
             <button className={active === '24hours' ? 'active-btn' : ''} value={'24hours'} onClick={(e) => changeGraph(hourly, e, -30)}>24 Hours</button>
@@ -111,8 +111,14 @@ const ForecastGraphContainer = (props) => {
             {graphData !== null && <ForecastGraph data={graphData} bAxis={axis} />}
           </div>
         </>
+        :
+        <div class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
       }
-    </div>
+    </StyledForecastGraphContainer>
   )
 }
 
