@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Search = (props) => {
 
-  const { setLocation } = props;
+  const { setSearchLocation } = props;
 
   const [searchTerm, setSearchTerm] = useState('');
   const [toggleSearch, setToggleSearch] = useState(true);
@@ -19,7 +19,7 @@ const Search = (props) => {
 
     // TODO : send back search query to wrapping container state
     // TODO : check if valid location before clearing
-    setLocation(searchTerm)
+    setSearchLocation(searchTerm)
     setSearchTerm('')
   }
 
@@ -48,7 +48,6 @@ const Search = (props) => {
           {/* NOT EMPTY AND FOCUSED */}
           {(!toggleSearch || !checkEmpty(searchTerm)) &&
             <label htmlFor="inputSubmit" className='submitIcon'>
-              {/* <GoSearch color={'rgb(159, 159, 159)'} size={45} className={'goSearch'} /> */}
               <FontAwesomeIcon size="2x" color={'rgb(159, 159, 159)'} icon={`search`} />
               <input onClick={handleSubmit} type="submit" name='inputSubmit' id='inputSubmit' />
             </label>
@@ -57,7 +56,6 @@ const Search = (props) => {
           {/* EMPTY */}
           {(toggleSearch || checkEmpty(searchTerm)) &&
             <label htmlFor='inputSearch' className='searchIcon'>
-              {/* <GoSearch color={'rgb(187, 187, 187)'} size={45} className={'goSearch'} /> */}
               <FontAwesomeIcon size="2x" color={'rgb(187, 187, 187)'} icon={`search`} />
             </label>
           }
