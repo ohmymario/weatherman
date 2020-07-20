@@ -4,11 +4,14 @@ import StyledHeaderContainer from './HeaderStyles';
 
 const Header = (props) => {
 
-  const { location } = props;
+  const { location, flagCountry } = props;
 
   return (
     <StyledHeaderContainer>
-      <h1 className='location'>{location}</h1>
+      <h1 className='header-location'>
+        {location}
+      <span className="header-country">, {flagCountry}</span>
+      </h1>
     </StyledHeaderContainer>
   )
 }

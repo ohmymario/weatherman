@@ -56,8 +56,7 @@ function App() {
         <CountryFlag flagCountry={flagCountry}/>
         <div className="centered-container">
           <WeatherIconsContainer currentWeatherData={currentWeatherData}/>
-          <Search setLocation={setLocation} />
-          <Header location={location} />
+          <Header location={location} flagCountry={flagCountry}/>
           <CurrentTemp currentWeatherData={currentWeatherData} />
           <WeatherCardContainer currentWeatherData={currentWeatherData} weeklyWeatherData={weeklyWeatherData} />
           <ForecastGraphContainer weeklyWeatherData={weeklyWeatherData} hourlyWeatherData={hourlyWeatherData} />

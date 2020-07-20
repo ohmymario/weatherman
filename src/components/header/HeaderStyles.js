@@ -10,12 +10,20 @@ const StyledHeaderContainer = styled.div`
   min-height: 7rem;
   max-height: 16rem;
 
+  .header-location,
+  .header-country {
+    font-weight: 600;
+  }
 
-.location {
-  font-size: 6.5rem;
-  font-weight: 600;
-  text-transform: capitalize;
-}
+  .header-location {
+    font-size: 6.5rem;
+    text-transform: capitalize;
+  }
+
+  .header-country {
+    font-size: 5rem;
+    text-transform: uppercase;
+  }
 `;
 
 export default StyledHeaderContainer;
