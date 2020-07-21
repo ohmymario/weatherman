@@ -24,6 +24,9 @@ function App() {
   const [hourlyWeatherData, setHourlyWeatherData] = useState();
   const [weeklyWeatherData, setWeeklyWeatherData] = useState();
 
+  function hasNumber(myString) {
+    return /\d/.test(myString);
+  }
 
   // Daily | Weekly | Hourly Weather Data
   useEffect(() => {
@@ -31,6 +34,7 @@ function App() {
 
       try {
         // ONLY FOR THE LAT, LON, LOCATION NAME
+        if(hasNumber(searchLocation)) throw new Error('This location cannot be found');
         const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchLocation}&units=imperial&appid=${process.env.REACT_APP_API_KEY}`);
         const data = await res.json();
         if(data.message) throw new Error(_.upperFirst(data.message));

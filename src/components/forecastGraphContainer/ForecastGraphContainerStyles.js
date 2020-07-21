@@ -12,6 +12,7 @@ const StyledForecastGraphContainer = styled.div`
   padding: 20px 0 20px 0;
   min-height: 464px;
   transition: all 0.3s ease-in-out;
+  margin-bottom: 10px;
   &::after {
     content: "";
     border-radius: 25px;

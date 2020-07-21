@@ -16,9 +16,6 @@ const Search = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (checkEmpty(searchTerm)) return;
-
-    // TODO : send back search query to wrapping container state
-    // TODO : check if valid location before clearing
     setSearchLocation(searchTerm)
     setSearchTerm('')
   }
