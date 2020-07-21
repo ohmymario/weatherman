@@ -9,7 +9,7 @@ const Header = (props) => {
   return (
     <StyledHeaderContainer>
       <h1 className='header-location'>
-        {location}
+        {location.trim()}
       <span className="header-country">, {flagCountry}</span>
       </h1>
     </StyledHeaderContainer>
