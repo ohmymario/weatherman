@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Search.css';
+// import './Search.css';
+import StyledSearchContainer from './SearchStyles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Search = (props) => {
@@ -26,7 +27,7 @@ const Search = (props) => {
 
   return (
 
-      <div className='searchContainer'>
+      <StyledSearchContainer >
         <form className='search' id='search' onSubmit={handleSubmit}>
 
           <input
@@ -58,7 +59,7 @@ const Search = (props) => {
           }
 
         </form>
-      </div>
+      </StyledSearchContainer>
 
   )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './WeatherCardContainer.css';
+import StyledWeatherCardContainer from './WeatherCardContainerStyles';
 
 import WeatherCard from '../weatherCard/WeatherCard';
 
@@ -29,7 +29,7 @@ const WeatherCardContainer = (props) => {
   }, [props])
 
   return (
-    <div className="weather-card-container">
+    <StyledWeatherCardContainer>
       {allWeatherData ?
       <>
         <WeatherCard
@@ -71,13 +71,8 @@ const WeatherCardContainer = (props) => {
         <WeatherCard/>
       </>
       }
-    </div>
+    </StyledWeatherCardContainer>
   )
 }
 
-{/* <WeatherCard data={`${feels_like}°`} type={`Feels Like`} icon='sun' unit={""} color='rgba(80, 79, 211)'/>
-<WeatherCard data={humidity} type={`Humidity`} icon='tint' unit={"%"} color='rgba(84, 175, 237)'/>
-<WeatherCard data={wind_speed} type={`Wind`} icon='wind' unit={"mph"} color='rgba(89, 198, 58)'/>
-<WeatherCard data={pressure} type={`Pressure`} icon='tachometer-alt' unit={"mbar"} color='rgba(245, 206, 2)'/>
-<WeatherCard data={`${min}° | ${max}°`} type={`Min/Max`} icon='thermometer-half' unit={""} color='rgba(209, 61, 65)'/> */}
 export default WeatherCardContainer;
