@@ -14,6 +14,9 @@ const StyledErrorModalContainer = styled.div`
       z-index: 1041;
       background: rgba(57, 56, 189, 1);
       color: white;
+      @media screen and (max-width: 600px) {
+         width: 85%;
+      }
    }
 
    .error-backdrop {
