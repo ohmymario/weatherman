@@ -89,7 +89,7 @@ const ForecastGraphContainer = (props) => {
 
   }, [hourlyWeatherData, weeklyWeatherData])
 
-  function changeGraph(type, e, axis = 0) {
+  function changeGraph(type, e, axis = -25) {
     if(e) {
       setActive(e.target.value)
     }
@@ -103,9 +103,9 @@ const ForecastGraphContainer = (props) => {
         graphData ?
         <>
           <div className="forecast-btns-container">
-            <button className={active === '24hours' ? 'active-btn' : ''} value={'24hours'} onClick={(e) => changeGraph(hourly, e, -30)}>24 Hours</button>
-            <button className={active === '7day' ? 'active-btn' : ''} value={'7day'} onClick={(e) => changeGraph(weekly, e)}>Next 7 days</button>
-            <button className={active === 'highlow' ? 'active-btn' : ''} value={'highlow'} onClick={(e) => changeGraph(highLow, e)}>High / Low</button>
+            <button className={active === '24hours' ? 'active-btn' : ''} value={'24hours'} onClick={(e) => changeGraph(hourly, e, -40)}>24 Hours</button>
+            <button className={active === '7day' ? 'active-btn' : ''} value={'7day'} onClick={(e) => changeGraph(weekly, e, -25)}>Next 7 days</button>
+            <button className={active === 'highlow' ? 'active-btn' : ''} value={'highlow'} onClick={(e) => changeGraph(highLow, e, -25)}>High / Low</button>
           </div>
           <div className="forecast-graph-container" >
             {graphData !== null && <ForecastGraph data={graphData} bAxis={axis} />}
