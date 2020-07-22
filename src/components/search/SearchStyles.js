@@ -7,6 +7,9 @@ const StyledSearchContainer = styled.div`
   align-self: flex-end;
   align-items: center;
   justify-content: flex-end;
+  @media screen and (max-width: 570px) {
+    width: 100%;
+  }
 
   .search {
     width: 85%;
