@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import StyledErrorModalContainer from './ErrorModalStyles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

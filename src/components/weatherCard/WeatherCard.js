@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import StyledCardContainer from './WeatherCardStyles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

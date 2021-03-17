@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { SunShower, ThunderStorm, Cloudy, Flurries, Sunny, Rainy, Hazy } from '../weatherIcons/WeatherIcons';
+import { ThunderStorm, Cloudy, Flurries, Sunny, Rainy, Hazy } from '../weatherIcons/WeatherIcons';
 
 const WeatherIconsContainer = (props) => {
 
