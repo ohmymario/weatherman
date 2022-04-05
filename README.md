@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Weatherman
 
-## Available Scripts
+A Weather App using React with a simple interface only showing relevant information. The application was intended to be light and minimal with the only visual aspect that changes is the background animations.
 
-In the project directory, you can run:
+**Link to project:** https://weatherman-demo.netlify.app/
 
-### `npm start`
+![desktop view of weatherman](https://drive.google.com/uc?export=view&id=1PMk3SP9KmdC22WZNfRsDN7XBEufA4gME)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How It's Made:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Tech used:** React, Nivo, OpenWeather API, Styled-Components, JavaScript
 
-### `npm test`
+I was looking to build a quick glance weather app similar to what Google has on their search engine. This was before knowing Gatsby which might have been a better pick for a single page app. I wanted to just build something with what I knew and figure things out along the way.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The OpenWeather API was nice to work with even though actually searching with it only using a form sometimes yielded incorrect results. The data was mildly parsed and then sent to each separate component for further processing. There was a lot of data that came back from one query so I didn't want to deal with all of that in each component over and over again.
 
-### `npm run build`
+The search box is custom and something I enjoy the look of. When clicked it "opens up", otherwise it tucks itself back in till interacted with again. It might not be bulletproof but I created it myself even though I could have relied on some already made code.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+What took a bulk of my time to implement was the graph from nivo. I used the line chart component from here. Getting the graph working took several small functions from the raw data returned from the OpenWeather API. Another thing I ran across while testing some locations is maintaining a graph even if some data just isn't there.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Optimizations
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I had some ideas I wanted to implement given the time. First would have been a dark mode. I've been seeing them popup on several websites. Maybe even tie it to the system time and change the website dynamically.
 
-### `npm run eject`
+I also wanted to work on better displaying the location a user searched. When searching for "San Francisco", the API brought back the country (US) rather than perhaps the state. I could have added another API to take care of this but was worried about bogging down search speed.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Lessons Learned:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Working with any API and getting data back is just the beginning. Molding that data into what you need takes a lot of trial and error. So many small functions to just get one piece working.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Another thing I had to consider was that sometimes an API won't have the data you want. So error handling is a must. Might not be perfect but getting as many use cases patched up really makes the experience a whole lot nicer for the user.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I'm excited to revisit this site in the future and see what more I could add or even revamp the whole look to something more exciting! 😀
 
-## Learn More
+## Examples:
+Take a look at these couple examples that I have in my own portfolio:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Coffee Roasters:** https://github.com/ohmymario/coffee-roasters
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Pizza Site:** https://github.com/ohmymario/pizza-site
 
-### Code Splitting
+**Huddle Landing Page:** https://github.com/ohmymario/huddle-landing-page
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
