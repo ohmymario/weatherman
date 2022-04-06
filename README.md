@@ -1,4 +1,4 @@
-# Weatherman
+# Weatherman ⛅
 
 A Weather App using React with a simple interface only showing relevant information. The application was intended to be light and minimal with the only visual aspect that changes is the background animations.
 
