@@ -4,7 +4,7 @@ A Weather App using React with a simple interface only showing relevant informat
 
 **Link to project:** https://weatherman-demo.netlify.app/
 
-![desktop view of weatherman](https://drive.google.com/uc?export=view&id=1PMk3SP9KmdC22WZNfRsDN7XBEufA4gME)
+![desktop view of weatherman](https://drive.google.com/uc?export=view&id=1Gvc7plSrQqdrS7jujV3_o80y83wLOkj-)
 
 ## How It's Made:
 
